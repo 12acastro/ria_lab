@@ -9,6 +9,8 @@ import { ClarityModule } from "@clr/angular";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthenticateService } from './service/authenticate.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ClarityModule,
   ],
   providers: [],

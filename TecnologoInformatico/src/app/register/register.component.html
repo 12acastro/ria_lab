@@ -1,28 +1,49 @@
 <div class="login-wrapper">
-    <form class="login">
+    <form class="logout">
         <section class="title">
             <h3 class="welcome">Bienvenido</h3>
 
             <h5 class="hint">Registrate para empezar </h5>
         </section>
         <div class="login-group">
+            <clr-select-container>
+                <label>User Role</label>
+                <select clrSelect #tipo name="type">
+                    <option value="local">Local Users</option>
+                    <option value="admin">Administrator</option>
+                </select>
+            </clr-select-container>
             <clr-input-container>
                 <label class="clr-sr-only">Correo</label>
-                <input type="text" name="Correo" clrInput placeholder="Correo" />
+                <input type="text" #correo name="Correo" clrInput placeholder="Correo" />
             </clr-input-container>
             <clr-input-container>
                 <label class="clr-sr-only">Username</label>
-                <input type="text" name="username" clrInput placeholder="Username" />
+                <input type="text" #username name="username" clrInput placeholder="Username" />
             </clr-input-container>
             <clr-password-container>
                 <label class="clr-sr-only">Password</label>
-                <input type="password" name="password" clrPassword placeholder="Password" />
+                <input type="password" #contrasena name="password" clrPassword placeholder="Password" />
             </clr-password-container>
 
            <!-- <div class="error active">
                 Invalid user name or password
             </div>-->
-            <button type="submit" (click)="registrar()" class="btn btn-primary">Registrar</button>
+            <button type="submit" (click)="[registrarse (correo.value, contrasena.value, username.value, tipo.value)]" class="btn btn-primary">Registrar</button>
         </div>
+    </form>
+
+    <form class="login">
+        <clr-input-container>
+            <label class="clr-sr-only">Correo</label>
+            <input type="text" #correoLogin name="Correo" clrInput placeholder="Correo" />
+        </clr-input-container>
+        <clr-password-container>
+            <label class="clr-sr-only">Password</label>
+            <input type="password" #contrasenaLogin name="password" clrPassword placeholder="Password" />
+        </clr-password-container>
+        <button type="submit" (click)="[inicioDeSesion (correoLogin.value, contrasenaLogin.value)]" class="btn btn-primary">Iniciar Sesion</button>
+
+
     </form>
 </div>
